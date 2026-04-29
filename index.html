@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta name="description" content="社会の不条理、既得権益、天下り構造を『バグ』として記録する監査ログ。事実と推論に基づき、知的なデバッグを遂行します。">
+    <meta name="keywords" content="バグチェック,バカチェック,天下り,茶番,社会構造,メタ認知,理詰め,歩きスマホ">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>バグチェック | 社会という名のスパゲッティコードを記述する</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #d32f2f; /* 警告・バグの色 */
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg-color);
+        }
+        header {
+            border-bottom: 2px solid var(--text-color);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+        h1 {
+            font-size: 2rem;
+            letter-spacing: 0.2rem;
+            margin: 0;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.2rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        .protocol-box {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            font-size: 0.95rem;
+        }
+        .protocol-item {
+            margin-bottom: 15px;
+        }
+        .protocol-tag {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .article-list {
+            list-style: none;
+            padding: 0;
+        }
+        .article-item {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .article-date {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        .article-link {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+        .article-link:hover {
+            color: var(--accent-color);
+        }
+        footer {
+            margin-top: 80px;
+            font-size: 0.8rem;
+            color: #999;
+            text-align: center;
+        }
+        .warning {
+            font-size: 0.85rem;
+            border: 1px solid var(--accent-color);
+            padding: 10px;
+            color: var(--accent-color);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bug Check</h1>
+    <div class="subtitle">社会という名のスパゲッティコードを記述する</div>
+</header>
+
+<section id="about">
+    <h2>コンセプト</h2>
+    <p>本サイトは、日本社会を一つの不完全なシステムと見なし、その内部で発生している論理的矛盾、既得権益の還流、および意思決定の機能不全を<strong>「バグ」</strong>として淡々と記録・公開する監査ログである。</p>
+    
+    <div class="protocol-box">
+        <div class="protocol-item">
+            <span class="protocol-tag">【事実：FACT】</span> 観測された一次情報。主観を排除した客観的データ。
+        </div>
+        <div class="protocol-item">
+            <span class="protocol-tag">【推論：INFERENCE】</span> 事実に基づく論理的解析。仮説であることを明示する。
+        </div>
+        <div class="protocol-item">
+            <span class="protocol-tag">【バカチェック：COMMENTARY】</span> 思考停止が生み出すエントロピーへの考察。
+        </div>
+    </div>
+</section>
+
+<section id="logs">
+    <h2>最新の監査ログ</h2>
+    <ul class="article-list">
+        <li class="article-item">
+            <a href="log-001.html" class="article-link">第1回：赤ん坊並みの危機管理、歩きスマホに耽る人びと</a>
+            <span class="article-date">2026-04-26</span>
+        </li>
+        </ul>
+</section>
+
+<section id="policy">
+    <h2>運営方針</h2>
+    <ul>
+        <li><strong>NO COMMENT / NO NOISE:</strong> 交流を目的としない。一方的なアーカイブである。</li>
+        <li><strong>NOT SERIOUS, BUT ACCURATE:</strong> 深刻にならず、冷徹に記述することを楽しむ。</li>
+        <li><strong>CALIBRATED VISION:</strong> 物理法則と論理的整合性による常時校正。</li>
+    </ul>
+    <div class="warning">
+        警告：本サイトを二元論（正義・悪）で解釈することは推奨しない。正解を出すのは読者自身の感覚である。
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Bug Check Audit Logs. All logs are calibrated.
+</footer>
+
+</body>
+</html>
