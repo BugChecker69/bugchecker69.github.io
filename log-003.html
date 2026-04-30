@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第3回：かつての「殿様」の残影、あるいは独占配信という名の囲い込みバグ | バグチェック</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #d32f2f;
+            --border-color: #e0e0e0;
+        }
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg-color);
+        }
+        header {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { color: var(--accent-color); }
+        h1 { font-size: 1.5rem; margin-top: 20px; }
+        .log-meta { font-family: monospace; font-size: 0.85rem; color: #888; margin-bottom: 30px; }
+        section { margin-bottom: 40px; }
+        h2 {
+            font-size: 1.1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 15px;
+            background: #fdfdfd;
+        }
+        .fact-box, .inference-box, .commentary-box, .mitigation-box {
+            padding: 20px;
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+        .fact-box { background-color: #fafafa; }
+        .inference-box { border-left: 4px solid #666; }
+        .mitigation-box { border: 2px solid #333; background-color: #fff; }
+        .commentary-box { 
+            font-style: italic; 
+            background-color: #fff9f9; 
+            border: 1px dashed var(--accent-color);
+        }
+        footer {
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            font-size: 0.8rem;
+            text-align: center;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">← 監査ログ一覧へ戻る</a>
+    <h1>第3回：かつての「殿様」の残影、あるいは独占配信という名の囲い込みバグ</h1>
+    <div class="log-meta">LOG ID: 003 | DATE: 2026-04-30 | STATUS: CALIBRATED</div>
+</header>
+
+<section>
+    <h2>【事実：FACT】</h2>
+    <div class="fact-box">
+        <ul>
+            <li><strong>キラーコンテンツの独占：</strong>ボクシング・井上尚弥戦という国民的関心の高いカードを、自社プラットフォーム「Lemino」のみに限定。</li>
+            <li><strong>インフラの機能不全：</strong>アクセス集中時の接続障害および画質低下の散発。可用性よりも集客ロジックが優先されている。</li>
+            <li><strong>強制的な経済圏誘引：</strong>他社プラットフォームでの視聴選択肢を排除し、dアカウントへの登録を強要する設計。</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>【推論：INFERENCE】</h2>
+    <div class="inference-box">
+        <p><strong>dアカウント中心主義の呪縛：</strong>iモード時代の「入口から出口まで全てを握る」という成功体験が、いまだに経営OSの根幹に居座っている。オープンネットワークにおいて「囲い込み」は利便性ではなく、単なる「障壁（バグ）」である。</p>
+        <p><strong>インフラ屋の驕り：</strong>土管（通信）の強みを背景に、「どこで見せるか」というチャネル独占に執着。これはシステムの全体最適よりも、自社権限の拡大を優先する設計ミスである。</p>
+    </div>
+</section>
+
+<section>
+    <h2>【回避・対策プロトコル：MITIGATION】</h2>
+    <div class="mitigation-box">
+        <p>不自由な囲い込みから離脱し、影響を最小化するための論理的アプローチ。</p>
+        <ul>
+            <li><strong>情報の物理的分離：</strong>本サービス専用の匿名アカウントを運用し、既存の個人情報・生活圏との結合（汚染）を防ぐ。</li>
+            <li><strong>遅延評価の採用：</strong>リアルタイム視聴のコスト（接続障害等のノイズ）を避け、アーカイブや要約による「情報の純粋化」を待つ。</li>
+            <li><strong>プロトコル・フリーの維持：</strong>キャリアに依存しない代替プラットフォームへのリソース移管を常時想定しておく。</li>
+        </ul>
+    </div>
+</section>
+
+<section>
+    <h2>【バカチェック：COMMENTARY】</h2>
+    <div class="commentary-box">
+        <p>かつての殿様は、民が自分の城に集まってくるのを待っているが、民はすでに城の外の広場で遊んでいる。独占という名の強制徴収を続けている限り、彼らは永遠に「嫌われながら使われるインフラ」から脱却できない。</p>
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 Bug Check Audit Logs.
+</footer>
+
+</body>
+</html>
