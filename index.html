@@ -60,16 +60,25 @@
             font-weight: bold;
             color: var(--accent-color);
         }
+                /* 記事リスト全体の余白をリセット */
         .article-list {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
+
+        /* 各記事項目の間隔を均一化 */
         .article-item {
-            padding: 15px 0;
-            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0; /* 上下の余白を20pxで固定 */
+            border-bottom: 1px solid var(--border-color); /* 下線で区切る */
             display: flex;
-            flex-direction: column; /* 縦並びに変更 */
-            gap: 5px; /* タイトルと日付の間に少し隙間を作る */
+            flex-direction: column;
+            gap: 8px; /* タイトルと日付の隙間 */
+        }
+
+        /* 最後の項目の下線だけ消す（見た目のバランス） */
+        .article-item:last-child {
+            border-bottom: none;
         }
         .article-date {
             font-family: monospace;
