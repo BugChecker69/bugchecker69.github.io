@@ -68,8 +68,14 @@
             padding: 15px 0;
             border-bottom: 1px solid var(--border-color);
             display: flex;
-            justify-content: space-between;
-            align-items: baseline;
+            flex-direction: column; /* 縦並びに変更 */
+            gap: 5px; /* タイトルと日付の間に少し隙間を作る */
+        }
+        .article-date {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #888;
+            align-self: flex-start; /* 左寄せに固定 */
         }
         .article-date {
             font-family: monospace;
