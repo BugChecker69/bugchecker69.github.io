@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta name="description" content="社会の不条理、既得権益、天下り構造を『バグ』として記録する監査ログ。事実と推論に基づき、知的なデバッグを遂行します。">
-    <meta name="keywords" content="バグチェック,バカチェック,天下り,茶番,社会構造,メタ認知,理詰め,歩きスマホ">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>バグチェック | 社会という名のスパゲッティコードを記述する</title>
+    <title>Bug Check Audit Logs</title>
     <style>
         :root {
             --bg-color: #ffffff;
             --text-color: #1a1a1a;
-            --accent-color: #d32f2f; /* 警告・バグの色 */
+            --accent-color: #d32f2f;
             --border-color: #e0e0e0;
         }
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            line-height: 1.6;
+            line-height: 1.8;
             color: var(--text-color);
             max-width: 800px;
             margin: 0 auto;
@@ -23,154 +21,116 @@
             background-color: var(--bg-color);
         }
         header {
-            border-bottom: 2px solid var(--text-color);
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 40px;
-            padding-bottom: 20px;
+            padding-bottom: 10px;
         }
-        h1 {
-            font-size: 2rem;
-            letter-spacing: 0.2rem;
-            margin: 0;
-            text-transform: uppercase;
-        }
-        .subtitle {
-            font-size: 0.9rem;
-            color: #666;
-            margin-top: 5px;
-        }
-        section {
-            margin-bottom: 40px;
-        }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .description { color: #666; font-size: 0.95rem; }
+
         h2 {
             font-size: 1.2rem;
-            border-left: 4px solid var(--accent-color);
+            border-left: 5px solid var(--accent-color);
             padding-left: 15px;
-            margin-bottom: 20px;
+            margin: 40px 0 20px;
         }
-        .protocol-box {
-            background-color: #f9f9f9;
-            border: 1px solid var(--border-color);
-            padding: 20px;
-            font-size: 0.95rem;
-        }
-        .protocol-item {
-            margin-bottom: 15px;
-        }
-        .protocol-tag {
-            font-weight: bold;
-            color: var(--accent-color);
-        }
-                /* 記事リスト全体の余白をリセット */
+
+        /* --- 監査ログリストの修正（等間隔化） --- */
         .article-list {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0; /* ブラウザのデフォルト余白をリセット */
         }
-
-        /* 各記事項目の間隔を均一化 */
         .article-item {
-            padding: 20px 0; /* 上下の余白を20pxで固定 */
-            border-bottom: 1px solid var(--border-color); /* 下線で区切る */
+            padding: 20px 0; /* 上下の内側余白を20pxで固定 */
+            border-bottom: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
-            gap: 8px; /* タイトルと日付の隙間 */
+            gap: 8px;
         }
-
-        /* 最後の項目の下線だけ消す（見た目のバランス） */
-        .article-item:last-child {
-            border-bottom: none;
-        }
-        .article-date {
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #888;
-            align-self: flex-start; /* 左寄せに固定 */
-        }
-        .article-date {
-            font-family: monospace;
-            font-size: 0.85rem;
-            color: #888;
+        .article-item:first-child {
+            border-top: 1px solid var(--border-color); /* リストの始まりを明確にする */
         }
         .article-link {
             text-decoration: none;
             color: var(--text-color);
             font-weight: bold;
+            font-size: 1.1rem;
+            line-height: 1.4;
         }
-        .article-link:hover {
+        .article-link:hover { color: var(--accent-color); }
+        .article-date {
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* --- 運営方針のスタイル --- */
+        .policy-list {
+            list-style: none;
+            padding: 0;
+        }
+        .policy-list li {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .policy-list li::before {
+            content: "•";
             color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
+        .policy-tag { font-weight: bold; }
+
         footer {
             margin-top: 80px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
             font-size: 0.8rem;
-            color: #999;
             text-align: center;
-        }
-        .warning {
-            font-size: 0.85rem;
-            border: 1px solid var(--accent-color);
-            padding: 10px;
-            color: var(--accent-color);
-            margin-top: 20px;
+            color: #999;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Bug Check</h1>
-    <div class="subtitle">社会という名のスパゲッティコードを記述する</div>
-</header>
+    <header>
+        <h1>Bug Check</h1>
+        <p class="description">社会に潜む論理的欠陥（バグ）を校正するための監査ログ。</p>
+    </header>
 
-<section id="about">
-    <h2>コンセプト</h2>
-    <p>本サイトは、日本社会を一つの不完全なシステムと見なし、その内部で発生している論理的矛盾、既得権益の還流、および意思決定の機能不全を<strong>「バグ」</strong>として淡々と記録・公開する監査ログである。</p>
-    
-    <div class="protocol-box">
-        <div class="protocol-item">
-            <span class="protocol-tag">【事実：FACT】</span> 観測された一次情報。主観を排除した客観的データ。
-        </div>
-        <div class="protocol-item">
-            <span class="protocol-tag">【推論：INFERENCE】</span> 事実に基づく論理的解析。仮説であることを明示する。
-        </div>
-        <div class="protocol-item">
-            <span class="protocol-tag">【バカチェック：COMMENTARY】</span> 思考停止が生み出すエントロピーへの考察。
-        </div>
-    </div>
-</section>
+    <section id="logs">
+        <h2>最新の監査ログ</h2>
+        <ul class="article-list">
+            <li class="article-item">
+                <a href="log-003.html" class="article-link">第3回：かつての「殿様」の残影、あるいは独占配信という名の囲い込みバグ</a>
+                <span class="article-date">2026-04-30</span>
+            </li>
+            <li class="article-item">
+                <a href="log-002.html" class="article-link">第2回：生存本能にハイジャックされた統治機構、あるいは「理念」という変数の消失</a>
+                <span class="article-date">2026-04-29</span>
+            </li>
+            <li class="article-item">
+                <a href="log-001.html" class="article-link">第1回：赤ん坊並みの危機管理、歩きスマホに耽る人びと</a>
+                <span class="article-date">2026-04-26</span>
+            </li>
+        </ul>
+    </section>
 
-<section id="logs">
-    <h2>最新の監査ログ</h2>
-    <ul class="article-list">
-        <li class="article-item">
-    <a href="log-003.html" class="article-link">第3回：かつての「殿様」の残影、あるいは独占配信という名の囲い込みバグ</a>
-    <span class="article-date">2026-04-30</span>
-　　　　　</li>
-        <li class="article-item">
-            <a href="log-002.html" class="article-link">第2回：生存本能にハイジャックされた統治機構、あるいは「理念」という変数の消失</a>
-            <span class="article-date">2026-04-29</span>
-        </li>
-        <li class="article-item">
-            <a href="log-001.html" class="article-link">第1回：赤ん坊並みの危機管理、歩きスマホに耽る人びと</a>
-            <span class="article-date">2026-04-26</span>
-        </li>
-    </ul>
-</section>
+    <section id="policy">
+        <h2>運営方針</h2>
+        <ul class="policy-list">
+            <li><span class="policy-tag">NO COMMENT / NO NOISE:</span> 交流を目的としない。一方的なアーカイブである。</li>
+            <li><span class="policy-tag">NOT SERIOUS, BUT ACCURATE:</span> 深刻にならず、冷徹に記述することを楽しむ。</li>
+            <li><span class="policy-tag">CALIBRATED VISION:</span> 物理法則と論理的整合性による常時校正。</li>
+        </ul>
+    </section>
 
-<section id="policy">
-    <h2>運営方針</h2>
-    <ul>
-        <li><strong>NO COMMENT / NO NOISE:</strong> 交流を目的としない。一方的なアーカイブである。</li>
-        <li><strong>NOT SERIOUS, BUT ACCURATE:</strong> 深刻にならず、冷徹に記述することを楽しむ。</li>
-        <li><strong>CALIBRATED VISION:</strong> 物理法則と論理的整合性による常時校正。</li>
-    </ul>
-    <div class="warning">
-        警告：本サイトを二元論（正義・悪）で解釈することは推奨しない。正解を出すのは読者自身の感覚である。
-    </div>
-</section>
-
-<footer>
-    &copy; 2026 Bug Check Audit Logs. All logs are calibrated.
-</footer>
+    <footer>
+        &copy; 2026 Bug Check Audit Logs.
+    </footer>
 
 </body>
 </html>
